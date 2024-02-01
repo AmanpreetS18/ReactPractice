@@ -1,0 +1,9 @@
+.displayy{
+   display:flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+.btns{
+    margin-bottom: 20px;
+}

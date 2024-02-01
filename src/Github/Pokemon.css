@@ -1,0 +1,18 @@
+.container{
+    height:80%;
+    width: 80%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 5px;
+    
+}
+.card{
+    height:15em;
+    width: 15em;
+    border:2px solid;
+    padding: auto;
+    padding-left: 2em;
+}
+.card2{
+    z-index: 100;
+}

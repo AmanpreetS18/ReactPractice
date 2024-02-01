@@ -1,0 +1,97 @@
+import React from 'react'
+import { useState } from 'react'
+function App() {
+  const [name,setName] =useState("")
+  const [password,setPassword] =useState("")
+  const [show,setShow] =useState(false)
+  return (
+    <div>
+      <input type="text" placeholder='Name' value={name} onChange={(e)=>{setName(e.target.value)}}/><br/>
+      <input type="password" placeholder='Password' value={password} onChange={(e)=>{setPassword(e.target.value)}}/><br/>
+      <input type="button" value="submit" onClick={()=>{setShow(!show)}} />
+      {show&&<p>Your Name is: {name} </p>}
+      { show&&<p>Your Password is: {password} </p>}
+          </div>
+  )
+}
+
+export default App
+
+///
+import React from 'react'
+
+function App() {
+  const [list, setList] = React.useState({
+    name:" ",
+    password:" "
+  });
+  const [condition, setCondition] = React.useState(false);
+  function handleClick(){
+    setCondition(!condition);
+  } 
+
+  return (
+    <div>
+      <input type="text" value={list.name} onChange={(e)=>{setList(
+        (prev)=>({...prev, name:e.target.value}
+  ))}}/>
+      <input type="password" value={list.password} onChange={(e)=>{setList((prev)=>({...prev,password:e.target.value}))}} /> 
+      <input type='button' value="submit" onClick={handleClick}/>
+      <h1>{condition&&list.name}</h1>
+      <h1>{condition&&list.password}</h1>
+    </div>
+  )
+}
+
+export default App
+///
+import React from 'react'
+import { useEffect } from 'react'
+
+function App() {
+  useEffect(()=>{
+    //console.log("Simple useEffect");
+    var interval=setInterval(()=>{
+         console.log("Interval Created")
+    },3000)
+   return ()=>{
+     clearInterval(interval);
+   }
+  }
+ 
+  )
+  function handleClick(){
+    console.log("Button Clicked")
+  }
+  return (
+    <div>
+      <h1>React APP</h1>
+      <button onClick={handleClick}>Click</button>
+    </div>
+  )
+}
+
+export default App
+////
+import React from 'react'
+import { useEffect } from 'react';
+
+function App() {
+  
+    
+   const [time,setTimer]=React.useState(new Date());
+      useEffect(
+        ()=>{
+          setTimeout(()=>{
+          setTimer(new Date());
+          },1000)
+        }
+      )
+  return (
+    <div>
+    {time.toLocaleTimeString()}
+    </div>
+  )
+}
+
+export default App
